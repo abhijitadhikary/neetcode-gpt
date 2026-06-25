@@ -1,10 +1,13 @@
 class Solution:
     def get_minimizer(self, iterations: int, learning_rate: float, init: int) -> float:
-        assert iterations >= 0, 'Iterations can not be negative'
-        assert learning_rate > 0 and learning_rate < 1, 'Learning rate should be between 0 and 1'
-        # assert init != 0, 'You cannot start with 0 as the initial guess'
+        # Objective function: f(x) = x^2
+        # Derivative:         f'(x) = 2x
+        # Update rule:        x = x - learning_rate * f'(x)
+        # Round final answer to 5 decimal places
+        
+        x = init
 
-        for index_iteration in range(iterations):
-            init = init - 2*init*learning_rate
-        return round(init, 5)
-
+        for idx_iter in range(iterations):
+            x = x + learning_rate * (-2*x)
+        
+        return round(x, 5)
