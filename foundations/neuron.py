@@ -14,6 +14,6 @@ class Solution:
         # ReLU: max(0, z)
         # return round(your_answer, 5)
         if activation == "sigmoid":
-            return round(np.divide(1, np.add(np.exp(-(np.add(np.dot(x, w), b))), 1)), 5)
+            return round(np.divide(1, np.add(np.exp(-(np.add(x @ w, b))), 1)), 5)
         elif activation == "relu":
-            return round(max(np.add(np.dot(x, w), b), 0.0), 5)
+            return round(max(np.add(x @ w, b), 0.0), 5)
